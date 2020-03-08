@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/mdp"
+        android:layout_width="302dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="96dp"
+        android:ems="10"
+        android:hint="Mot de passe"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/identifiant" />
+
+
+    <EditText
+        android:id="@+id/identifiant"
+        android:layout_width="307dp"
+        android:layout_height="68dp"
+        android:layout_marginTop="92dp"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Courriel ou pseudo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="165dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="154dp"
+        android:layout_marginLeft="154dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="154dp"
+        android:layout_marginRight="154dp"
+        android:text="Connexion"
+        android:onClick="Connexion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/mdp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="188dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="92dp"
+        android:text="Connexion"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="#2196F3"
+        app:fontFamily="monospace"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
