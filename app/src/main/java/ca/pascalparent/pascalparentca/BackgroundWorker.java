@@ -2,7 +2,12 @@ package ca.pascalparent.pascalparentca;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Message;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -12,6 +17,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
+import java.net.JarURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -67,13 +73,38 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     @Override
     protected void onPreExecute() {
         alertDialog = new AlertDialog.Builder(context).create();
-        alertDialog.setTitle("Login Status");
+        alertDialog.setTitle("Informations");
     }
 
     @Override
     protected void onPostExecute(String result) {
-        alertDialog.setMessage(result);
-        alertDialog.show();
+
+        try {
+            JSONObject reader = new JSONObject ( result );
+            if(((String)reader.get ( "courriel" )).length ()>0){
+                Session.setId ( (Integer.parseInt (reader.get ( "id" ).toString ())) );
+                Session.setNom ( ((String)reader.get ( "nom" )) );
+                Session.setPrenom ( ((String)reader.get ( "prenom" )) );
+                Session.setCourriel ( ((String)reader.get ( "courriel" )) );
+                Session.setCouleur ( ((String)reader.get ( "couleur" )) );
+                Session.setPhoto ( ((String)reader.get ( "photo" )) );
+                Intent anothercallActivity=new Intent(context,Profil.class);
+                context.startActivity ( anothercallActivity);
+            }
+
+        } catch ( JSONException e ) {
+            alertDialog.setMessage(result);
+            alertDialog.show();
+        }
+
+
+
+
+
+
+
+
+
 
     }
 
