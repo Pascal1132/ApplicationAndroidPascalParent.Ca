@@ -3,8 +3,8 @@ package ca.pascalparent.pascalparentca;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
-import android.os.Message;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -17,7 +17,6 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.JarURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -25,6 +24,9 @@ import java.net.URLEncoder;
 public class BackgroundWorker extends AsyncTask<String,Void,String> {
     Context context;
     AlertDialog alertDialog;
+    private String identifiant;
+    private String mdp;
+
     BackgroundWorker (Context ctx){
         context = ctx;
     }
@@ -35,8 +37,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         String connexion_url = "https://pascalparent.ca/reseauSocial/android/connexion.php";
         if(type.equals("connexion")){
             try {
-                String user_name = params[1];
-                String password = params[2];
+                identifiant = params[1];
+                mdp = params[2];
                 URL url = new URL(connexion_url);
                 HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
                 httpURLConnection.setRequestMethod("POST");
@@ -44,8 +46,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 httpURLConnection.setDoInput(true);
                 OutputStream outputStream = httpURLConnection.getOutputStream();
                 BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                String post_data = URLEncoder.encode("identifiant","UTF-8")+"="+URLEncoder.encode(user_name,"UTF-8")+"&"
-                        +URLEncoder.encode("mdp","UTF-8")+"="+URLEncoder.encode(password,"UTF-8");
+                String post_data = URLEncoder.encode("identifiant","UTF-8")+"="+URLEncoder.encode( identifiant ,"UTF-8")+"&"
+                        +URLEncoder.encode("mdp","UTF-8")+"="+URLEncoder.encode(mdp,"UTF-8");
                 bufferedWriter.write(post_data);
                 bufferedWriter.flush();
                 bufferedWriter.close();
@@ -90,6 +92,22 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 Session.setPhoto ( ((String)reader.get ( "photo" )) );
                 Intent anothercallActivity=new Intent(context,Profil.class);
                 context.startActivity ( anothercallActivity);
+                SharedPreferences settings = context.getSharedPreferences("ConnexionPreferences", 0);
+                SharedPreferences.Editor editor = settings.edit();
+                if(MainActivity.checkBox.isChecked ()){
+
+                    editor.putString ( "identifiant", identifiant);
+                    editor.putString ( "mdp", mdp);
+                    editor.commit ();
+                    editor.apply();
+                }else{
+
+                    editor.putString ( "identifiant", "");
+                    editor.putString ( "mdp", "");
+                    editor.commit ();
+                    editor.apply();
+                }
+
             }
 
         } catch ( JSONException e ) {

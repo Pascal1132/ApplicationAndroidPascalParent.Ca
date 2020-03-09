@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     EditText EtMdp, EtIdentifiant;
     SharedPreferences settings;
     SharedPreferences.Editor editor;
+    public static CheckBox checkBox;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +23,11 @@ public class MainActivity extends AppCompatActivity {
         EtMdp  = (EditText)findViewById(R.id.mdp);
         settings = getApplicationContext().getSharedPreferences("ConnexionPreferences", 0);
          editor = settings.edit();
+        checkBox = ((CheckBox )findViewById ( R.id.checkBoxLog ));
+        checkBox.setChecked ( settings.getBoolean ( "isSavedLoggedIn" , false) );
 
-        ((CheckBox )findViewById ( R.id.checkBoxLog )).setChecked ( settings.getBoolean ( "isSavedLoggedIn" , false) );
+        EtMdp.setText ( settings.getString ( "mdp", "" ) );
+        EtIdentifiant.setText ( settings.getString ( "identifiant", "" ) );
 
     }
     public void Connexion(View view){
@@ -33,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
 
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
         backgroundWorker.execute("connexion",identifiant,mdp);
+
 
 
     }
@@ -46,5 +51,8 @@ public class MainActivity extends AppCompatActivity {
 
 // Apply the edits!
         editor.apply();
+        if(!checkBox.isChecked ()){
+            editor.clear ();
+        }
     }
 }

@@ -653,6 +653,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color indianred
 color material_blue_grey_800
 color material_blue_grey_900
 color material_blue_grey_950
@@ -1064,6 +1065,7 @@ drawable tooltip_frame_light
 id ALT
 id CTRL
 id FUNCTION
+id Footer
 id META
 id SHIFT
 id SYM
@@ -1133,6 +1135,7 @@ id dimensions
 id direct
 id disableHome
 id editCourriel
+id editText
 id edit_query
 id end
 id end_padder
@@ -1151,6 +1154,7 @@ id ghost_view
 id gone
 id group_divider
 id groups
+id header
 id home
 id homeAsUp
 id icon
@@ -1158,9 +1162,11 @@ id icon_group
 id identifiant
 id ifRoom
 id image
+id imageButton4
 id imageButtonAnnuler
 id imageButtonMessage
 id imageButtonQuit
+id imageButtonRetour
 id info
 id inputNom
 id inputPrenom
@@ -1179,6 +1185,7 @@ id masked
 id mdp
 id media_actions
 id message
+id messagesVue
 id middle
 id mini
 id mobile_navigation
