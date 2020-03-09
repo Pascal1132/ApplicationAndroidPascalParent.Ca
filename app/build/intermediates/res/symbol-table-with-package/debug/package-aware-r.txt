@@ -1347,6 +1347,7 @@ layout abc_select_dialog_material
 layout abc_tooltip
 layout activity_inscription
 layout activity_main
+layout activity_messagerie
 layout activity_modification
 layout activity_profil
 layout design_bottom_navigation_item
