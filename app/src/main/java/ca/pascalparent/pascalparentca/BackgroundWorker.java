@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -26,6 +27,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     AlertDialog alertDialog;
     private String identifiant;
     private String mdp;
+    private String type;
 
     BackgroundWorker (Context ctx){
         context = ctx;
@@ -33,8 +35,9 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
     @Override
     protected String doInBackground(String... params) {
-        String type = params[0];
+        type = params[0];
         String connexion_url = "https://pascalparent.ca/reseauSocial/android/connexion.php";
+        String recherche_url = "https://pascalparent.ca/reseauSocial/android/rechercherAmisAjouter.php";
         if(type.equals("connexion")){
             try {
                 identifiant = params[1];
@@ -69,6 +72,40 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 e.printStackTrace();
             }
         }
+        if(type.equals("recherche")){
+            try {
+                String pseudo = params[1];
+
+                URL url = new URL(recherche_url);
+                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                httpURLConnection.setRequestMethod("POST");
+                httpURLConnection.setDoOutput(true);
+                httpURLConnection.setDoInput(true);
+                OutputStream outputStream = httpURLConnection.getOutputStream();
+                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                String post_data = URLEncoder.encode("recherche","UTF-8")+"="+URLEncoder.encode( pseudo ,"UTF-8");
+                bufferedWriter.write(post_data);
+                bufferedWriter.flush();
+                bufferedWriter.close();
+                outputStream.close();
+                InputStream inputStream = httpURLConnection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
+
+                String result="";
+                String line="";
+                while((line = bufferedReader.readLine())!= null) {
+                    result += line+"\r\n";
+                }
+                bufferedReader.close();
+                inputStream.close();
+                httpURLConnection.disconnect();
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
         return null;
     }
 
@@ -80,40 +117,65 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
     @Override
     protected void onPostExecute(String result) {
+        if(type.equals ( "connexion" )){
+            try {
+                JSONObject reader = new JSONObject ( result );
+                if(((String)reader.get ( "courriel" )).length ()>0){
+                    Session.setId ( (Integer.parseInt (reader.get ( "id" ).toString ())) );
+                    Session.setNom ( ((String)reader.get ( "nom" )) );
+                    Session.setPrenom ( ((String)reader.get ( "prenom" )) );
+                    Session.setCourriel ( ((String)reader.get ( "courriel" )) );
+                    Session.setCouleur ( ((String)reader.get ( "couleur" )) );
+                    Session.setPhoto ( ((String)reader.get ( "photo" )) );
+                    Intent anothercallActivity=new Intent(context,Profil.class);
+                    context.startActivity ( anothercallActivity);
+                    SharedPreferences settings = context.getSharedPreferences("ConnexionPreferences", 0);
+                    SharedPreferences.Editor editor = settings.edit();
+                    if(MainActivity.checkBox.isChecked ()){
 
-        try {
-            JSONObject reader = new JSONObject ( result );
-            if(((String)reader.get ( "courriel" )).length ()>0){
-                Session.setId ( (Integer.parseInt (reader.get ( "id" ).toString ())) );
-                Session.setNom ( ((String)reader.get ( "nom" )) );
-                Session.setPrenom ( ((String)reader.get ( "prenom" )) );
-                Session.setCourriel ( ((String)reader.get ( "courriel" )) );
-                Session.setCouleur ( ((String)reader.get ( "couleur" )) );
-                Session.setPhoto ( ((String)reader.get ( "photo" )) );
-                Intent anothercallActivity=new Intent(context,Profil.class);
-                context.startActivity ( anothercallActivity);
-                SharedPreferences settings = context.getSharedPreferences("ConnexionPreferences", 0);
-                SharedPreferences.Editor editor = settings.edit();
-                if(MainActivity.checkBox.isChecked ()){
+                        editor.putString ( "identifiant", identifiant);
+                        editor.putString ( "mdp", mdp);
+                        editor.commit ();
+                        editor.apply();
+                    }else{
 
-                    editor.putString ( "identifiant", identifiant);
-                    editor.putString ( "mdp", mdp);
-                    editor.commit ();
-                    editor.apply();
-                }else{
+                        editor.putString ( "identifiant", "");
+                        editor.putString ( "mdp", "");
+                        editor.commit ();
+                        editor.apply();
+                    }
 
-                    editor.putString ( "identifiant", "");
-                    editor.putString ( "mdp", "");
-                    editor.commit ();
-                    editor.apply();
                 }
 
+            } catch ( JSONException e ) {
+                alertDialog.setMessage(result);
+                alertDialog.show();
+            }
+        }else if(type.equals ( "recherche" )){
+            JSONObject json = null;
+            String j = "";
+            JSONObject reader;
+            try {
+                String[] res = result.split ( "\\n" );
+                j="Amis:\n\n";
+                for ( int i = 0; i<res.length ; i++ ){
+                    reader =new JSONObject ( res[i] );
+
+                    j+=reader.getString ( "pseudo" )+"\n";
+                }
+
+
+
+
+
+            } catch ( JSONException e ) {
+                e.printStackTrace ( );
             }
 
-        } catch ( JSONException e ) {
-            alertDialog.setMessage(result);
+            alertDialog.setMessage(j);
             alertDialog.show();
         }
+
 
 
 

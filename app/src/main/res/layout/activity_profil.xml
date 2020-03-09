@@ -4,7 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#00A83636"
     tools:context=".Profil">
+
+    <ImageView
+        android:id="@+id/FondColore"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+       />
 
     <TextView
         android:id="@+id/titre"
@@ -12,14 +23,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="175dp"
         android:layout_marginLeft="175dp"
-        android:layout_marginTop="48dp"
         android:layout_marginEnd="178dp"
         android:layout_marginRight="178dp"
         android:text="Titre"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonMessage" />
 
     <TextView
         android:id="@+id/textView8"
@@ -58,8 +68,8 @@
         android:layout_marginTop="27dp"
         android:layout_marginEnd="113dp"
         android:layout_marginRight="113dp"
-        android:text="Modifier"
         android:onClick="modification"
+        android:text="Modifier"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/photoProfil" />
@@ -73,6 +83,7 @@
         android:layout_marginTop="108dp"
         android:layout_marginEnd="113dp"
         android:layout_marginRight="113dp"
+        android:onClick="amis"
         android:text="Amis"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1063,9 +1063,13 @@ drawable side_nav_bar
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
 id ALT
+id BoutonAjouter
+id BoutonRetour
 id CTRL
 id FUNCTION
+id FondColore
 id Footer
+id ListeAmis
 id META
 id SHIFT
 id SYM
@@ -1162,6 +1166,7 @@ id icon_group
 id identifiant
 id ifRoom
 id image
+id imageButton
 id imageButton4
 id imageButtonAnnuler
 id imageButtonMessage
@@ -1230,6 +1235,7 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
+id searchBar
 id search_badge
 id search_bar
 id search_button
@@ -1273,6 +1279,7 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textStart
+id textView
 id textView2
 id textView3
 id textView4
@@ -1352,6 +1359,8 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_ajouter_ami
+layout activity_amis
 layout activity_inscription
 layout activity_main
 layout activity_messagerie
@@ -1466,6 +1475,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string search_menu_title
 string status_bar_notification_info_overflow
+string title_activity_liste_amis
 string title_activity_profil
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

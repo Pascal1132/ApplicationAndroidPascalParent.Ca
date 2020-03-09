@@ -15,6 +15,8 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     public static CheckBox checkBox;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

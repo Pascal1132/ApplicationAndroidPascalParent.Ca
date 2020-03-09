@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-27:12
+ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-29:12
 MERGED from [androidx.navigation:navigation-ui:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/cc46d54ac1ba9e981d6abc757a55249a/jetified-navigation-ui-2.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.google.android.material:material:1.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/2946ca0ea6c89dab7d7d9fbc18e54292/material-1.0.0/AndroidManifest.xml:17:1-24:12
 MERGED from [androidx.appcompat:appcompat:1.0.2] /home/pascal/.gradle/caches/transforms-2/files-2.1/906744c4ddcbc384c5a8d2d69414f8fa/appcompat-1.0.2/AndroidManifest.xml:17:1-22:12
@@ -52,20 +52,20 @@ MERGED from [androidx.documentfile:documentfile:1.0.0] /home/pascal/.gradle/cach
 MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/8cf450d11667f9427b289f08c2115f5c/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.print:print:1.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/d31a9dbc3f8404c541e987748c42963b/print-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [androidx.interpolator:interpolator:1.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/699bc310780b1730bce8fe271ffeca8b/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
-INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-27:12
-INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-27:12
+INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-29:12
 	package
 		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:3:5-45
 		INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml
 		INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml
 	android:versionName
 		INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml
-		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-27:12
+		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-29:12
 		INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml
 	android:versionCode
 		INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml
-		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-27:12
+		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:1-29:12
 		INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:2:11-69
@@ -74,7 +74,7 @@ ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/
 	android:name
 		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:5:22-64
 application
-ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:7:5-25:19
+ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:7:5-27:19
 MERGED from [com.google.android.material:material:1.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/2946ca0ea6c89dab7d7d9fbc18e54292/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.material:material:1.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/2946ca0ea6c89dab7d7d9fbc18e54292/material-1.0.0/AndroidManifest.xml:22:5-20
 MERGED from [androidx.constraintlayout:constraintlayout:1.1.3] /home/pascal/.gradle/caches/transforms-2/files-2.1/508ac768b50158a079142e4dc4915061/constraintlayout-1.1.3/AndroidManifest.xml:9:5-20
@@ -105,36 +105,44 @@ MERGED from [androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/ca
 		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:8:9-35
 	android:theme
 		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:13:9-40
-activity#ca.pascalparent.pascalparentca.Messagerie
+activity#ca.pascalparent.pascalparentca.AjouterAmi
 ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:14:9-57
 	android:name
 		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:14:19-45
+activity#ca.pascalparent.pascalparentca.Amis
+ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:15:9-42
+	android:name
+		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:15:19-39
+activity#ca.pascalparent.pascalparentca.Messagerie
+ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:16:9-48
+	android:name
+		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:16:19-45
 activity#ca.pascalparent.pascalparentca.Modification
-ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:15:9-50
+ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:17:9-50
 	android:name
-		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:15:19-47
+		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:17:19-47
 activity#ca.pascalparent.pascalparentca.Profil
-ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:16:9-44
+ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:18:9-44
 	android:name
-		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:16:19-41
+		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:18:19-41
 activity#ca.pascalparent.pascalparentca.Inscription
-ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:17:9-49
+ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:19:9-49
 	android:name
-		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:17:19-46
+		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:19:19-46
 activity#ca.pascalparent.pascalparentca.MainActivity
-ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:18:9-24:20
+ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:20:9-26:20
 	android:name
-		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:18:19-47
+		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:20:19-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:19:13-23:29
+ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:21:13-25:29
 action#android.intent.action.MAIN
-ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:20:17-69
+ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:22:17-69
 	android:name
-		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:20:25-66
+		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:22:25-66
 category#android.intent.category.LAUNCHER
-ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:22:17-77
+ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:24:17-77
 	android:name
-		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:22:27-74
+		ADDED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:24:27-74
 uses-sdk
 INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml

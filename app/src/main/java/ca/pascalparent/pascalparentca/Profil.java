@@ -3,6 +3,7 @@ package ca.pascalparent.pascalparentca;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -21,6 +22,10 @@ public class Profil extends AppCompatActivity {
         newText.setText ( Session.getPrenom () + " "+Session.getNom () );
         ImageView photoProfil = (ImageView) findViewById ( R.id.photoProfil);
         Picasso.get ().load ( "https://pascalparent.ca/reseauSocial/data/utilisateurs/photo_profil/"+Session.getPhoto () ).into ( photoProfil );
+        ImageView fond = (ImageView) findViewById (R.id.FondColore);
+        fond.setBackgroundColor ( Color.parseColor ( Session.getCouleur ()) );
+
+
     }
     public void deconnexion( View view){
         Intent anothercallActivity=new Intent (this,MainActivity.class);
@@ -32,6 +37,11 @@ public class Profil extends AppCompatActivity {
     }
     public void messagerie(View view){
         Intent anothercallActivity=new Intent (this,Messagerie.class);
+        startActivity ( anothercallActivity);
+    }
+
+    public void amis ( View view ) {
+        Intent anothercallActivity=new Intent (this,Amis.class);
         startActivity ( anothercallActivity);
     }
 }

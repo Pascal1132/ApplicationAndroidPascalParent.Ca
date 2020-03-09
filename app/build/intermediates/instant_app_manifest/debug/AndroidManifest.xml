@@ -21,6 +21,8 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="ca.pascalparent.pascalparentca.AjouterAmi" />
+        <activity android:name="ca.pascalparent.pascalparentca.Amis" />
         <activity android:name="ca.pascalparent.pascalparentca.Messagerie" />
         <activity android:name="ca.pascalparent.pascalparentca.Modification" />
         <activity android:name="ca.pascalparent.pascalparentca.Profil" />
