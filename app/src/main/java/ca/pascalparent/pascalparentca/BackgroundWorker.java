@@ -5,6 +5,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,10 +23,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class BackgroundWorker extends AsyncTask<String,Void,String> {
     Context context;
@@ -28,6 +38,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     private String identifiant;
     private String mdp;
     private String type;
+    private ListView lw;
 
     BackgroundWorker (Context ctx){
         context = ctx;
@@ -121,12 +132,20 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             try {
                 JSONObject reader = new JSONObject ( result );
                 if(((String)reader.get ( "courriel" )).length ()>0){
-                    Session.setId ( (Integer.parseInt (reader.get ( "id" ).toString ())) );
-                    Session.setNom ( ((String)reader.get ( "nom" )) );
-                    Session.setPrenom ( ((String)reader.get ( "prenom" )) );
-                    Session.setCourriel ( ((String)reader.get ( "courriel" )) );
-                    Session.setCouleur ( ((String)reader.get ( "couleur" )) );
-                    Session.setPhoto ( ((String)reader.get ( "photo" )) );
+
+                    ArrayList<Integer> amis = new ArrayList<Integer> ( );
+                    String[] amisStrTab= reader.getString ( "id" ).split ( ";" );
+                    for ( int i = 0 ; i < amisStrTab.length ; i++ ) {
+                        amis.add ( Integer.valueOf ( amisStrTab[i] ) );
+                    }
+
+
+
+                    Session.SessionInit (Integer.parseInt (reader.get ( "id" ).toString ()),
+                            (String)reader.get ( "prenom" ),(String)reader.get ( "nom" ),
+                            (String)reader.get ( "courriel" ),(String)reader.get ( "pseudo" ),
+                            (String)reader.get ( "photo" ), (String)reader.get ( "couleur" ),amis);
+
                     Intent anothercallActivity=new Intent(context,Profil.class);
                     context.startActivity ( anothercallActivity);
                     SharedPreferences settings = context.getSharedPreferences("ConnexionPreferences", 0);
@@ -148,20 +167,26 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 }
 
             } catch ( JSONException e ) {
-                alertDialog.setMessage(result);
+
+                alertDialog.setMessage(result+"\n\nERREUR JSON : "+e.getMessage ());
                 alertDialog.show();
             }
         }else if(type.equals ( "recherche" )){
             JSONObject json = null;
-            String j = "";
+            String msg = "";
+            ArrayList<Integer> identifiants = new ArrayList<Integer> (  );
             JSONObject reader;
             try {
                 String[] res = result.split ( "\\n" );
-                j="Amis:\n\n";
+
                 for ( int i = 0; i<res.length ; i++ ){
                     reader =new JSONObject ( res[i] );
+                    int id = Integer.valueOf ( reader.getString ( "id" ));
+                    if(Session.getId () != id && !Session.getAmis ().contains ( id )){
 
-                    j+=reader.getString ( "pseudo" )+"\n";
+                    msg+=reader.getString ( "pseudo" )+" : ("+reader.getString ( "prenom" )+" "+reader.getString ( "nom" )+") \n";
+                    identifiants.add ( id);
+                    }
                 }
 
 
@@ -171,9 +196,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             } catch ( JSONException e ) {
                 e.printStackTrace ( );
             }
+            updateLw(msg, identifiants);
 
-            alertDialog.setMessage(j);
-            alertDialog.show();
         }
 
 
@@ -188,9 +212,66 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
     }
 
+    private void updateLw ( String msg , final ArrayList<Integer> identifiants) {
+        String[] values = msg.split ( "\n" );
+        final ArrayList<String> list = new ArrayList<String> (  );
+        for (int i = 0; i<values.length; i++){
+            list.add ( values[i] );
+        }
+        final StableArrayAdapter adapter = new StableArrayAdapter(context,
+                android.R.layout.simple_list_item_1, list);
+        this.getListView ().setAdapter(adapter);
+        adapter.notifyDataSetChanged ();
+        lw.setOnItemClickListener(new AdapterView.OnItemClickListener () {
+            @Override
+            public void onItemClick( AdapterView<?> arg0, View arg1, int position, long arg3) {
+                String[] tempChaineCoupee= lw.getItemAtPosition(position).toString ().split(":" );
+                System.out.println ( "Clicked : " + tempChaineCoupee[0].trim () + identifiants.get ( position )  );
+            }
+        });
+    }
+
 
     @Override
     protected void onProgressUpdate(Void... values) {
         super.onProgressUpdate(values);
     }
+
+    public void setListView ( ListView lw ) {
+        this.lw = lw;
+    }
+    public ListView getListView(){
+        return this.lw;
+    }
+
+
+
+}
+/*
+* FROM https://www.vogella.com/tutorials/AndroidListView/article.html
+*
+*/
+class StableArrayAdapter extends ArrayAdapter<String> {
+
+    HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
+
+    public StableArrayAdapter(Context context, int textViewResourceId,
+                              List<String> objects) {
+        super(context, textViewResourceId, objects);
+        for (int i = 0; i < objects.size(); ++i) {
+            mIdMap.put(objects.get(i), i);
+        }
+    }
+
+    @Override
+    public long getItemId(int position) {
+        String item = getItem(position);
+        return mIdMap.get(item);
+    }
+
+    @Override
+    public boolean hasStableIds() {
+        return true;
+    }
+
 }

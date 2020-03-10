@@ -1,13 +1,25 @@
+/*
+ * Copyright (c) 2020. pascalparent.ca pour android
+ */
+
 package ca.pascalparent.pascalparentca;
+
+import java.util.ArrayList;
 
 public class Session {
 
 
+    public Session ( ) {
+    }
 
     private static int id;
     private static String prenom;
     private static String nom;
+    private static String pseudo;
     private static String courriel;
+    private static String couleur;
+    private static String photo;
+    private static ArrayList<Integer> amis;
 
     public static String getPhoto ( ) {
         return photo;
@@ -17,12 +29,20 @@ public class Session {
         Session.photo = photo;
     }
 
-    private static String photo;
 
-    public Session ( ) {
+
+    public static void SessionInit (int id, String prenom, String nom, String pseudo, String courriel, String photo, String couleur, ArrayList<Integer> amis) {
+        Session.id = id;
+        Session.prenom = prenom;
+        Session.nom = nom;
+        Session.pseudo = pseudo;
+        Session.courriel = courriel;
+        Session.photo = photo;
+        Session.couleur = couleur;
+        Session.amis = amis;
     }
 
-    private static String couleur;
+
 
 
 
@@ -64,5 +84,13 @@ public class Session {
 
     public static void setCouleur ( String couleur ) {
         Session.couleur = couleur;
+    }
+
+    public static ArrayList<Integer> getAmis ( ) {
+        return amis;
+    }
+
+    public static void setAmis ( ArrayList<Integer> amis ) {
+        Session.amis = amis;
     }
 }

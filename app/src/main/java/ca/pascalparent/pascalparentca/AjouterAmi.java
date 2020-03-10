@@ -6,34 +6,32 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.Toast;
 
 public class AjouterAmi extends AppCompatActivity {
 
     private EditText et;
+    private ListView lw;
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_ajouter_ami );
         et = (( EditText )findViewById ( R.id.searchBar ));
-        et.addTextChangedListener(new TextWatcher() {
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                rechercher ();
-            }
-
-            @Override
-            public void beforeTextChanged(CharSequence s, int start,
-                                          int count, int after) {
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start,
-                                      int before, int count) {
-
+        lw = ((ListView)findViewById ( R.id.ListeAmis ));
+        et.setOnKeyListener(new View.OnKeyListener () {
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                // If the event is a key-down event on the "enter" button
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    rechercher ();
+                    return true;
+                }
+                return false;
             }
         });
     }
@@ -44,7 +42,9 @@ public class AjouterAmi extends AppCompatActivity {
     public void rechercher(){
         EditText et = ( EditText )findViewById ( R.id.searchBar );
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+        backgroundWorker.setListView(lw);
         backgroundWorker.execute("recherche",et.getText ().toString ());
+
 
     }
 }
