@@ -29,68 +29,67 @@
 19-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:11:9-54
 20        android:supportsRtl="true"
 20-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:12:9-35
-21        android:testOnly="true"
-22        android:theme="@style/AppTheme" >
-22-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:13:9-40
-23        <activity android:name="ca.pascalparent.pascalparentca.AjouterAmi" />
-23-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:14:9-57
-23-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:14:19-45
-24        <activity android:name="ca.pascalparent.pascalparentca.Amis" />
-24-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:15:9-42
-24-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:15:19-39
-25        <activity android:name="ca.pascalparent.pascalparentca.Messagerie" />
-25-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:16:9-48
-25-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:16:19-45
-26        <activity android:name="ca.pascalparent.pascalparentca.Modification" />
-26-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:17:9-50
-26-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:17:19-47
-27        <activity android:name="ca.pascalparent.pascalparentca.Profil" />
-27-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:18:9-44
-27-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:18:19-41
-28        <activity android:name="ca.pascalparent.pascalparentca.Inscription" />
-28-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:19:9-49
-28-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:19:19-46
-29        <activity android:name="ca.pascalparent.pascalparentca.MainActivity" >
-29-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:20:9-26:20
-29-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:20:19-47
-30            <intent-filter>
-30-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:21:13-25:29
-31                <action android:name="android.intent.action.MAIN" />
-31-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:22:17-69
-31-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:22:25-66
-32
-33                <category android:name="android.intent.category.LAUNCHER" />
-33-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:24:17-77
-33-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:24:27-74
-34            </intent-filter>
-35        </activity>
-36
-37        <provider
-37-->[com.squareup.picasso:picasso:2.71828] /home/pascal/.gradle/caches/transforms-2/files-2.1/693085b6ac746350c8ba86357f102a6c/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
-38            android:name="com.squareup.picasso.PicassoProvider"
-38-->[com.squareup.picasso:picasso:2.71828] /home/pascal/.gradle/caches/transforms-2/files-2.1/693085b6ac746350c8ba86357f102a6c/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
-39            android:authorities="ca.pascalparent.pascalparentca.com.squareup.picasso"
-39-->[com.squareup.picasso:picasso:2.71828] /home/pascal/.gradle/caches/transforms-2/files-2.1/693085b6ac746350c8ba86357f102a6c/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
-40            android:exported="false" />
-40-->[com.squareup.picasso:picasso:2.71828] /home/pascal/.gradle/caches/transforms-2/files-2.1/693085b6ac746350c8ba86357f102a6c/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
-41
-42        <service
-42-->[androidx.room:room-runtime:2.2.4] /home/pascal/.gradle/caches/transforms-2/files-2.1/2a8ee9ff2dc9b9b25f69213ddcd8deda/room-runtime-2.2.4/AndroidManifest.xml:25:9-27:40
-43            android:name="androidx.room.MultiInstanceInvalidationService"
-43-->[androidx.room:room-runtime:2.2.4] /home/pascal/.gradle/caches/transforms-2/files-2.1/2a8ee9ff2dc9b9b25f69213ddcd8deda/room-runtime-2.2.4/AndroidManifest.xml:26:13-74
-44            android:exported="false" />
-44-->[androidx.room:room-runtime:2.2.4] /home/pascal/.gradle/caches/transforms-2/files-2.1/2a8ee9ff2dc9b9b25f69213ddcd8deda/room-runtime-2.2.4/AndroidManifest.xml:27:13-37
-45
-46        <provider
-46-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
-47            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-47-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79
-48            android:authorities="ca.pascalparent.pascalparentca.lifecycle-process"
-48-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
-49            android:exported="false"
-49-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
-50            android:multiprocess="true" />
-50-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
-51    </application>
-52
-53</manifest>
+21        android:theme="@style/AppTheme" >
+21-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:13:9-40
+22        <activity android:name="ca.pascalparent.pascalparentca.AjouterAmi" />
+22-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:14:9-57
+22-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:14:19-45
+23        <activity android:name="ca.pascalparent.pascalparentca.Amis" />
+23-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:15:9-42
+23-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:15:19-39
+24        <activity android:name="ca.pascalparent.pascalparentca.Messagerie" />
+24-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:16:9-48
+24-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:16:19-45
+25        <activity android:name="ca.pascalparent.pascalparentca.Modification" />
+25-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:17:9-50
+25-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:17:19-47
+26        <activity android:name="ca.pascalparent.pascalparentca.Profil" />
+26-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:18:9-44
+26-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:18:19-41
+27        <activity android:name="ca.pascalparent.pascalparentca.Inscription" />
+27-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:19:9-49
+27-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:19:19-46
+28        <activity android:name="ca.pascalparent.pascalparentca.MainActivity" >
+28-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:20:9-26:20
+28-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:20:19-47
+29            <intent-filter>
+29-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:21:13-25:29
+30                <action android:name="android.intent.action.MAIN" />
+30-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:22:17-69
+30-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:22:25-66
+31
+32                <category android:name="android.intent.category.LAUNCHER" />
+32-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:24:17-77
+32-->/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/src/main/AndroidManifest.xml:24:27-74
+33            </intent-filter>
+34        </activity>
+35
+36        <provider
+36-->[com.squareup.picasso:picasso:2.71828] /home/pascal/.gradle/caches/transforms-2/files-2.1/693085b6ac746350c8ba86357f102a6c/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
+37            android:name="com.squareup.picasso.PicassoProvider"
+37-->[com.squareup.picasso:picasso:2.71828] /home/pascal/.gradle/caches/transforms-2/files-2.1/693085b6ac746350c8ba86357f102a6c/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
+38            android:authorities="ca.pascalparent.pascalparentca.com.squareup.picasso"
+38-->[com.squareup.picasso:picasso:2.71828] /home/pascal/.gradle/caches/transforms-2/files-2.1/693085b6ac746350c8ba86357f102a6c/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
+39            android:exported="false" />
+39-->[com.squareup.picasso:picasso:2.71828] /home/pascal/.gradle/caches/transforms-2/files-2.1/693085b6ac746350c8ba86357f102a6c/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
+40
+41        <service
+41-->[androidx.room:room-runtime:2.2.4] /home/pascal/.gradle/caches/transforms-2/files-2.1/2a8ee9ff2dc9b9b25f69213ddcd8deda/room-runtime-2.2.4/AndroidManifest.xml:25:9-27:40
+42            android:name="androidx.room.MultiInstanceInvalidationService"
+42-->[androidx.room:room-runtime:2.2.4] /home/pascal/.gradle/caches/transforms-2/files-2.1/2a8ee9ff2dc9b9b25f69213ddcd8deda/room-runtime-2.2.4/AndroidManifest.xml:26:13-74
+43            android:exported="false" />
+43-->[androidx.room:room-runtime:2.2.4] /home/pascal/.gradle/caches/transforms-2/files-2.1/2a8ee9ff2dc9b9b25f69213ddcd8deda/room-runtime-2.2.4/AndroidManifest.xml:27:13-37
+44
+45        <provider
+45-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
+46            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+46-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79
+47            android:authorities="ca.pascalparent.pascalparentca.lifecycle-process"
+47-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
+48            android:exported="false"
+48-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
+49            android:multiprocess="true" />
+49-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
+50    </application>
+51
+52</manifest>
