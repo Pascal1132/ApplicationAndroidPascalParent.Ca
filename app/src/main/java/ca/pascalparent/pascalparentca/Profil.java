@@ -19,11 +19,11 @@ public class Profil extends AppCompatActivity {
         super.onCreate ( savedInstanceState );
         setContentView ( R.layout.activity_profil );
         TextView newText = ( TextView ) findViewById ( R.id.titre );
-        newText.setText ( Session.getPrenom () + " "+Session.getNom () );
+        newText.setText ( Session.membre.getPrenom () + " "+Session.membre.getNom () );
         ImageView photoProfil = (ImageView) findViewById ( R.id.photoProfil);
-        Picasso.get ().load ( "https://pascalparent.ca/reseauSocial/data/utilisateurs/photo_profil/"+Session.getPhoto () ).into ( photoProfil );
+        Picasso.get ().load ( "https://pascalparent.ca/reseauSocial/data/utilisateurs/photo_profil/"+Session.membre.getPhoto () ).into ( photoProfil );
         ImageView fond = (ImageView) findViewById (R.id.FondColore);
-        fond.setBackgroundColor ( Color.parseColor ( Session.getCouleur ()) );
+        //fond.setBackgroundColor ( Color.parseColor ( Session.getCouleur ()) );
 
 
     }

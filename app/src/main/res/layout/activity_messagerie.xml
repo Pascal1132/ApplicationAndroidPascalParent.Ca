@@ -15,15 +15,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@color/indianred" />
 
-    <ImageView
-        android:id="@+id/Footer"
-        android:layout_width="0dp"
-        android:layout_height="63dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="?attr/colorButtonNormal" />
-
     <ImageButton
         android:id="@+id/imageButtonRetour"
         android:layout_width="62dp"
@@ -36,23 +27,6 @@
         app:layout_constraintTop_toTopOf="@+id/header"
         app:srcCompat="?attr/actionModeCloseDrawable" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="0dp"
-        android:layout_height="51dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:hint="Message"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton4"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Footer"
-        app:layout_constraintVertical_bias="0.95" />
-
     <TextView
         android:id="@+id/titre"
         android:layout_width="wrap_content"
@@ -62,7 +36,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="89dp"
         android:layout_marginRight="89dp"
-        android:text="Messagerie"
+        android:text="Mes messages"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textColor="@android:color/background_dark"
         android:textSize="30sp"
@@ -70,22 +44,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/Footer"
-        app:layout_constraintStart_toEndOf="@+id/editText"
-        app:srcCompat="@android:drawable/ic_menu_send" />
-
     <ListView
-        android:id="@+id/messagesVue"
+        android:id="@+id/ListeMessages"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="1dp"
@@ -94,7 +54,7 @@
         android:layout_marginEnd="1dp"
         android:layout_marginRight="1dp"
         android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/Footer"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header" />

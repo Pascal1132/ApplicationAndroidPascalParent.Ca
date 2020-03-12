@@ -653,6 +653,7 @@ color foreground_material_dark
 color foreground_material_light
 color highlighted_text_material_dark
 color highlighted_text_material_light
+color ic_launcher_background
 color indianred
 color material_blue_grey_800
 color material_blue_grey_900
@@ -1033,6 +1034,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
+drawable ic_ami
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_menu_camera
@@ -1068,8 +1070,8 @@ id BoutonRetour
 id CTRL
 id FUNCTION
 id FondColore
-id Footer
 id ListeAmis
+id ListeMessages
 id META
 id SHIFT
 id SYM
@@ -1139,7 +1141,6 @@ id dimensions
 id direct
 id disableHome
 id editCourriel
-id editText
 id edit_query
 id end
 id end_padder
@@ -1167,7 +1168,6 @@ id identifiant
 id ifRoom
 id image
 id imageButton
-id imageButton4
 id imageButtonAnnuler
 id imageButtonMessage
 id imageButtonQuit
@@ -1190,7 +1190,6 @@ id masked
 id mdp
 id media_actions
 id message
-id messagesVue
 id middle
 id mini
 id mobile_navigation

@@ -4,13 +4,18 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.google.gson.Gson;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -23,6 +28,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -31,6 +37,9 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import ca.pascalparent.pascalparentca.ObjectClass.ConnexionInfo;
+import ca.pascalparent.pascalparentca.ObjectClass.RechercheAmis;
 
 public class BackgroundWorker extends AsyncTask<String,Void,String> {
     Context context;
@@ -49,33 +58,16 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         type = params[0];
         String connexion_url = "https://pascalparent.ca/reseauSocial/android/connexion.php";
         String recherche_url = "https://pascalparent.ca/reseauSocial/android/rechercherAmisAjouter.php";
+        String update_url = "https://pascalparent.ca/reseauSocial/android/update.php";
+        String supprimerAmitie_url = "https://pascalparent.ca/reseauSocial/android/supprimerAmitie.php";
         if(type.equals("connexion")){
             try {
                 identifiant = params[1];
                 mdp = params[2];
-                URL url = new URL(connexion_url);
-                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setDoInput(true);
-                OutputStream outputStream = httpURLConnection.getOutputStream();
-                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                String post_data = URLEncoder.encode("identifiant","UTF-8")+"="+URLEncoder.encode( identifiant ,"UTF-8")+"&"
-                        +URLEncoder.encode("mdp","UTF-8")+"="+URLEncoder.encode(mdp,"UTF-8");
-                bufferedWriter.write(post_data);
-                bufferedWriter.flush();
-                bufferedWriter.close();
-                outputStream.close();
-                InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
-                String result="";
-                String line="";
-                while((line = bufferedReader.readLine())!= null) {
-                    result += line+"\r\n";
-                }
-                bufferedReader.close();
-                inputStream.close();
-                httpURLConnection.disconnect();
+
+                String result = queryToServer ( connexion_url , URLEncoder.encode("identifiant","UTF-8")+"="+URLEncoder.encode( identifiant ,"UTF-8")+"&"
+                        +URLEncoder.encode("mdp","UTF-8")+"="+URLEncoder.encode(mdp,"UTF-8"));
+
                 return result;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
@@ -86,35 +78,51 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         if(type.equals("recherche")){
             try {
                 String pseudo = params[1];
+                String result = queryToServer ( recherche_url , URLEncoder.encode ( "recherche" , "UTF-8" ) + "=" + URLEncoder.encode ( pseudo , "UTF-8" ) );
 
-                URL url = new URL(recherche_url);
-                HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
-                httpURLConnection.setRequestMethod("POST");
-                httpURLConnection.setDoOutput(true);
-                httpURLConnection.setDoInput(true);
-                OutputStream outputStream = httpURLConnection.getOutputStream();
-                BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                String post_data = URLEncoder.encode("recherche","UTF-8")+"="+URLEncoder.encode( pseudo ,"UTF-8");
-                bufferedWriter.write(post_data);
-                bufferedWriter.flush();
-                bufferedWriter.close();
-                outputStream.close();
-                InputStream inputStream = httpURLConnection.getInputStream();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
-
-                String result="";
-                String line="";
-                while((line = bufferedReader.readLine())!= null) {
-                    result += line+"\r\n";
-                }
-                bufferedReader.close();
-                inputStream.close();
-                httpURLConnection.disconnect();
                 return result;
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+        }
+        if(type.equals ( "supprimerAmitie" )){
+
+            try {
+                String idAmi = params[1];
+                String result = queryToServer ( supprimerAmitie_url , URLEncoder.encode ( "idUtilisateur" , "UTF-8" ) + "=" + URLEncoder.encode ( String.valueOf ( Session.membre.getId () ) , "UTF-8") +"&"
+                        +URLEncoder.encode("idAmi","UTF-8")+"="+URLEncoder.encode(idAmi,"UTF-8")) ;
+
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if(type.equals ( "update" )){
+            try {
+
+
+
+                String result = queryToServer ( update_url , URLEncoder.encode("id","UTF-8")+"="+URLEncoder.encode( String.valueOf (  Session.membre.getId ()) ,"UTF-8")+"&"
+                        +URLEncoder.encode("mdp","UTF-8")+"="+URLEncoder.encode( (  Session.membre.getMdp ()),"UTF-8"));
+
+                return result;
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        if(type.equals ( "nouvelleAmitie" )){
+            String url = "https://pascalparent.ca/reseauSocial/android/nouvelleAmitie.php";
+            try {
+                queryToServer (url , URLEncoder.encode("idDemandeur","UTF-8")+"="+URLEncoder.encode( String.valueOf (  Session.membre.getId ()) ,"UTF-8")+"&"
+                        +URLEncoder.encode("idRecepteur","UTF-8")+"="+URLEncoder.encode(params[1],"UTF-8"));
+            } catch ( IOException e ) {
+                e.printStackTrace ( );
             }
         }
         return null;
@@ -133,23 +141,19 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 JSONObject reader = new JSONObject ( result );
                 if(((String)reader.get ( "courriel" )).length ()>0){
 
-                    ArrayList<Integer> amis = new ArrayList<Integer> ( );
-                    String[] amisStrTab= reader.getString ( "id" ).split ( ";" );
-                    for ( int i = 0 ; i < amisStrTab.length ; i++ ) {
-                        amis.add ( Integer.valueOf ( amisStrTab[i] ) );
-                    }
-
-
-
-                    Session.SessionInit (Integer.parseInt (reader.get ( "id" ).toString ()),
-                            (String)reader.get ( "prenom" ),(String)reader.get ( "nom" ),
-                            (String)reader.get ( "courriel" ),(String)reader.get ( "pseudo" ),
-                            (String)reader.get ( "photo" ), (String)reader.get ( "couleur" ),amis);
+                    Gson gson =new Gson ();
+                    ConnexionInfo info = gson.fromJson ( result, ConnexionInfo.class );
+                    info.afficher ();
+                    new Session (info);
 
                     Intent anothercallActivity=new Intent(context,Profil.class);
                     context.startActivity ( anothercallActivity);
+
+                    //Configuration
                     SharedPreferences settings = context.getSharedPreferences("ConnexionPreferences", 0);
                     SharedPreferences.Editor editor = settings.edit();
+
+                    //Sauvegarde dans le mobile
                     if(MainActivity.checkBox.isChecked ()){
 
                         editor.putString ( "identifiant", identifiant);
@@ -168,36 +172,36 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
             } catch ( JSONException e ) {
 
-                alertDialog.setMessage(result+"\n\nERREUR JSON : "+e.getMessage ());
+                alertDialog.setMessage(result);
+                e.printStackTrace ();
                 alertDialog.show();
             }
         }else if(type.equals ( "recherche" )){
-            JSONObject json = null;
-            String msg = "";
-            ArrayList<Integer> identifiants = new ArrayList<Integer> (  );
-            JSONObject reader;
+            Gson gson =new Gson ();
+            ConnexionInfo[] amis =gson.fromJson ( result, ConnexionInfo[].class );
+
+            updateLw(amis);
+
+        }else if(type.equals ( "update" )){
             try {
-                String[] res = result.split ( "\\n" );
+                JSONObject reader = new JSONObject ( result );
+                if(((String)reader.get ( "courriel" )).length ()>0){
 
-                for ( int i = 0; i<res.length ; i++ ){
-                    reader =new JSONObject ( res[i] );
-                    int id = Integer.valueOf ( reader.getString ( "id" ));
-                    if(Session.getId () != id && !Session.getAmis ().contains ( id )){
+                    Gson gson =new Gson ();
+                    ConnexionInfo info = gson.fromJson ( result, ConnexionInfo.class );
+                    info.afficher ();
+                    new Session (info);
 
-                    msg+=reader.getString ( "pseudo" )+" : ("+reader.getString ( "prenom" )+" "+reader.getString ( "nom" )+") \n";
-                    identifiants.add ( id);
-                    }
+
+
                 }
 
-
-
-
-
             } catch ( JSONException e ) {
-                e.printStackTrace ( );
-            }
-            updateLw(msg, identifiants);
 
+                alertDialog.setMessage(result);
+                e.printStackTrace ();
+                alertDialog.show();
+            }
         }
 
 
@@ -212,24 +216,57 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
 
     }
 
-    private void updateLw ( String msg , final ArrayList<Integer> identifiants) {
-        String[] values = msg.split ( "\n" );
+    private void updateLw ( ConnexionInfo[] amis ) {
         final ArrayList<String> list = new ArrayList<String> (  );
-        for (int i = 0; i<values.length; i++){
-            list.add ( values[i] );
+        for ( int i = 0 ; i < amis.length ; i++ ) {
+            list.add (  amis[i].getPseudo() + " ("+amis[i].getPrenom()+" "+amis[i].getNom()+")");
         }
-        final StableArrayAdapter adapter = new StableArrayAdapter(context,
+        final StableArrayAdapter adapter = new StableArrayAdapter(amis, context,
                 android.R.layout.simple_list_item_1, list);
         this.getListView ().setAdapter(adapter);
         adapter.notifyDataSetChanged ();
+
+
+
+
         lw.setOnItemClickListener(new AdapterView.OnItemClickListener () {
+            private ConnexionInfo[] amis;
+
             @Override
             public void onItemClick( AdapterView<?> arg0, View arg1, int position, long arg3) {
-                String[] tempChaineCoupee= lw.getItemAtPosition(position).toString ().split(":" );
-                System.out.println ( "Clicked : " + tempChaineCoupee[0].trim () + identifiants.get ( position )  );
+
+                if(!Session.membre.getListeAmisId ().contains ( amis[position].getId () )){
+                    System.out.println ( "Clicked : " + amis[position].getId () );
+
+
+                        BackgroundWorker backgroundWorker = new BackgroundWorker(context);
+
+                        backgroundWorker.execute("nouvelleAmitie", String.valueOf (  amis[position].getId ()));
+                   backgroundWorker = new BackgroundWorker(context);
+
+                    backgroundWorker.execute("update");
+                    arg1.setBackgroundColor (Color.BLACK);
+
+
+                }
+
             }
-        });
+            private AdapterView.OnItemClickListener init(ConnexionInfo[] amis){
+                this.amis = amis;
+                return this;
+
+            }
+        }.init(amis));
+
+
+
+
+
+
+
     }
+
+
 
 
     @Override
@@ -243,7 +280,33 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     public ListView getListView(){
         return this.lw;
     }
+    
+    public String queryToServer(String urlConn, String post_data) throws IOException {
+        URL url = new URL(urlConn);
+        HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+        httpURLConnection.setRequestMethod("POST");
+        httpURLConnection.setDoOutput(true);
+        httpURLConnection.setDoInput(true);
+        OutputStream outputStream = httpURLConnection.getOutputStream();
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
 
+        bufferedWriter.write(post_data);
+        bufferedWriter.flush();
+        bufferedWriter.close();
+        outputStream.close();
+        InputStream inputStream = httpURLConnection.getInputStream();
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"UTF-8"));
+
+        String result="";
+        String line="";
+        while((line = bufferedReader.readLine())!= null) {
+            result += line+"\r\n";
+        }
+        bufferedReader.close();
+        inputStream.close();
+        httpURLConnection.disconnect();
+        return result;
+    }
 
 
 }
@@ -254,10 +317,13 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
 class StableArrayAdapter extends ArrayAdapter<String> {
 
     HashMap<String, Integer> mIdMap = new HashMap<String, Integer>();
+    ConnexionInfo[] amis;
 
-    public StableArrayAdapter(Context context, int textViewResourceId,
+    public StableArrayAdapter(ConnexionInfo[] amis,Context context, int textViewResourceId,
                               List<String> objects) {
+
         super(context, textViewResourceId, objects);
+        this.amis = amis;
         for (int i = 0; i < objects.size(); ++i) {
             mIdMap.put(objects.get(i), i);
         }
@@ -273,5 +339,23 @@ class StableArrayAdapter extends ArrayAdapter<String> {
     public boolean hasStableIds() {
         return true;
     }
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        View row = super.getView(position, convertView, parent);
+
+        if(Session.membre.getListeAmisId ().contains ( amis[position].getId () ))
+        {
+            // do something change color
+            row.setBackgroundColor (Color.BLACK); // some color
+        }
+        else
+        {
+            // default state
+
+        }
+        return row;
+    }
 
 }
+
+

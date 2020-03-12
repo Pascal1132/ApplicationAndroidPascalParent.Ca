@@ -1,17 +1,152 @@
 package ca.pascalparent.pascalparentca;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Icon;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.PopupMenu;
+
+import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Amis extends AppCompatActivity {
+    public static boolean dialogAfficher =false;
 
     @Override
     protected void onCreate ( Bundle savedInstanceState ) {
         super.onCreate ( savedInstanceState );
+        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+
+        backgroundWorker.execute("update");
         setContentView ( R.layout.activity_amis );
+        ListView lv = ( ListView ) findViewById(R.id.ListeAmis);
+
+
+
+        List<String> your_array_list = Session.membre.getAmisPrenomNomPseudo ();
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                your_array_list );
+
+        lv.setAdapter(arrayAdapter);
+
+
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener () {
+            public void onItemClick( final AdapterView<?> parent, View view,
+                                     int position, long id) {
+
+                parent.setOnItemLongClickListener ( null );
+                ArrayList<String> amis = Session.membre.getAmis ( ).get ( position );
+
+
+                ImageView image = new ImageView(Amis.this);
+                image.requestLayout ( );
+                image.setAdjustViewBounds ( true );
+                image.setScaleType ( ImageView.ScaleType.FIT_CENTER );
+
+                Picasso.get ().load ( "https://pascalparent.ca/reseauSocial/data/utilisateurs/photo_profil/"+amis.get ( 5 ) ).into ( image );
+
+                new AlertDialog.Builder(Amis.this)
+                        .setView ( image )
+                        .setTitle("Profil de l'ami ("+amis.get ( 3 )+")")
+                        .setMessage("Prenom : "+ amis.get ( 2 )+"\r\nNom : "+amis.get ( 1 ))
+                        .setIcon( R.drawable.ic_ami)
+                        .setPositiveButton("Envoyer un message", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dlg, int sumthin) {
+                            Intent anothercallActivity=new Intent (Amis.this,Messagerie.class);
+                            startActivity ( anothercallActivity);
+                        }
+                        })
+                        .setNegativeButton ( "Supprimer l'amitié" , new DialogInterface.OnClickListener ( ) {
+                            @Override
+                            public void onClick ( DialogInterface dialog , int which ) {
+                                new AlertDialog.Builder(Amis.this)
+
+                                        .setTitle("Supprimer l'amitié?")
+                                        .setMessage("Yo big t'es tu sûr que tu veux kill le friendship de ton bro ?")
+                                        .setIcon( R.drawable.ic_ami)
+                                        .setPositiveButton("Oui", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dlg, int sumthin) {
+                                                BackgroundWorker backgroundWorker = new BackgroundWorker(parent.getContext ());
+
+                                                backgroundWorker.execute("supprimerAmitie", String.valueOf (  Session.membre.getAmis ().get (  parent.getSelectedItemPosition ())));
+                                            }
+                                        })
+                                        .setNegativeButton("Non", new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dlg, int sumthin) {
+                                                dlg.dismiss();
+
+                                            }
+                                        })
+
+
+
+                                        .show();
+                            }
+                        } )
+                        .setOnDismissListener ( new AlertDialog.OnDismissListener(){
+
+                            @Override
+                            public void onDismiss ( DialogInterface dialog ) {
+                                Amis.dialogAfficher = false;
+                            }
+                        })
+
+
+                        .show();
+                Amis.dialogAfficher=true;
+
+            }
+        });
+
+
+
+
+    }
+
+    public void onItemSimpleTouch ( int position ){
+
+                ArrayList<String> amis = Session.membre.getAmis ( ).get ( position );
+
+
+                ImageView image = new ImageView(Amis.this);
+                image.requestLayout ( );
+                image.setAdjustViewBounds ( true );
+                image.setScaleType ( ImageView.ScaleType.FIT_CENTER );
+
+                Picasso.get ().load ( "https://pascalparent.ca/reseauSocial/data/utilisateurs/photo_profil/"+amis.get ( 5 ) ).into ( image );
+
+                new AlertDialog.Builder(Amis.this)
+                        .setView ( image )
+                        .setTitle("Profil de l'ami ("+amis.get ( 3 )+")")
+                        .setMessage("Prenom : "+ amis.get ( 2 )+"\r\nNom : "+amis.get ( 1 ))
+                        .setIcon( R.drawable.ic_ami)
+                        .setPositiveButton("Envoyer un message", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dlg, int sumthin) {
+                                Intent anothercallActivity=new Intent (Amis.this,Messagerie.class);
+                                startActivity ( anothercallActivity);
+                            }
+                        })
+
+                        .show();
+
+
+
     }
 
     public void profil ( View view ) {
