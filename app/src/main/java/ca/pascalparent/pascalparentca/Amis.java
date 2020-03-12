@@ -74,7 +74,7 @@ public class Amis extends AppCompatActivity {
                 new AlertDialog.Builder(Amis.this)
                         .setView ( image )
                         .setTitle("Profil de l'ami ("+amis.get ( 3 )+")")
-                        .setMessage("Prenom : "+ amis.get ( 2 )+"\r\nNom : "+amis.get ( 1 ))
+                        .setMessage("Prenom : "+ amis.get ( 1 )+"\r\nNom : "+amis.get ( 2))
                         .setIcon( R.drawable.ic_ami)
                         .setPositiveButton("Envoyer un message", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dlg, int sumthin) {
