@@ -1,4 +1,4 @@
-#Thu Mar 12 11:03:04 EDT 2020
+#Thu Mar 12 12:21:39 EDT 2020
 base.0=/home/pascal/AndroidStudioProjects/ApplicationAndroidPascalParent.Ca/app/build/intermediates/dex/debug/mergeDexDebug/out/classes.dex
 path.0=classes.dex
 renamed.0=classes.dex

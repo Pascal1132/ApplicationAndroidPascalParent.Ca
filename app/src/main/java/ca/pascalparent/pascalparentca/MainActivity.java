@@ -2,12 +2,19 @@ package ca.pascalparent.pascalparentca;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.DownloadManager;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+
+import com.github.javiersantos.appupdater.AppUpdater;
+
+import java.io.File;
 
 public class MainActivity extends AppCompatActivity {
     EditText EtMdp, EtIdentifiant;
@@ -30,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
 
         EtMdp.setText ( settings.getString ( "mdp", "" ) );
         EtIdentifiant.setText ( settings.getString ( "identifiant", "" ) );
+
+
+
 
     }
     public void Connexion(View view){
@@ -56,5 +66,14 @@ public class MainActivity extends AppCompatActivity {
         if(!checkBox.isChecked ()){
             editor.clear ();
         }
+    }
+
+    public void nouvelleMiseAjour ( View view ) {
+        String url = "https://github.com/Pascal1132/ApplicationAndroidPascalParent.Ca/raw/master/app/build/outputs/apk/debug/app-debug.apk";
+        Intent i = new Intent(Intent.ACTION_VIEW);
+        i.setData(Uri.parse(url));
+        startActivity(i);
+
+
     }
 }

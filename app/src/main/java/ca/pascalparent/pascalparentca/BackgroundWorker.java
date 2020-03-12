@@ -150,6 +150,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                     Gson gson =new Gson ();
                     ConnexionInfo info = gson.fromJson ( result, ConnexionInfo.class );
                     info.afficher ();
+
                     new Session (info);
 
                     Intent anothercallActivity=new Intent(context,Profil.class);
