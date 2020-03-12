@@ -10,8 +10,11 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -48,6 +51,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     private String mdp;
     private String type;
     private ListView lw;
+    private AdapterView<?> arrayAdapter;
 
     BackgroundWorker (Context ctx){
         context = ctx;
@@ -78,7 +82,9 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
         if(type.equals("recherche")){
             try {
                 String pseudo = params[1];
-                String result = queryToServer ( recherche_url , URLEncoder.encode ( "recherche" , "UTF-8" ) + "=" + URLEncoder.encode ( pseudo , "UTF-8" ) );
+
+                String result = queryToServer ( recherche_url , URLEncoder.encode ( "recherche" , "UTF-8" ) + "=" + URLEncoder.encode ( pseudo , "UTF-8" ) +"&"
+                        +URLEncoder.encode("id","UTF-8")+"="+URLEncoder.encode(String.valueOf (  Session.membre.getId ()),"UTF-8"));
 
                 return result;
             } catch (MalformedURLException e) {
@@ -191,6 +197,21 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                     ConnexionInfo info = gson.fromJson ( result, ConnexionInfo.class );
                     info.afficher ();
                     new Session (info);
+                    if(this.getListView ()!=null){
+                        ListAdapter adapter = this.getListView ( ).getAdapter ( );
+                        ((BaseAdapter) adapter).notifyDataSetChanged ();
+                        List<String> your_array_list = Session.membre.getAmisPrenomNomPseudo ();
+                        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                                context,
+                                android.R.layout.simple_list_item_1,
+                                your_array_list );
+
+                        Amis.lv.setAdapter(arrayAdapter);
+
+                    }
+
+
+
 
 
 
@@ -202,6 +223,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
                 e.printStackTrace ();
                 alertDialog.show();
             }
+        }else if(type.equals ( "supprimerAmitie" )){
+            System.out.println ( "BackgroundWorker.java(l.206) : "+ result );
         }
 
 
@@ -219,7 +242,10 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     private void updateLw ( ConnexionInfo[] amis ) {
         final ArrayList<String> list = new ArrayList<String> (  );
         for ( int i = 0 ; i < amis.length ; i++ ) {
-            list.add (  amis[i].getPseudo() + " ("+amis[i].getPrenom()+" "+amis[i].getNom()+")");
+            if(Session.membre.getId() != amis[i].getId ()){
+                list.add (  amis[i].getPseudo() + " ("+amis[i].getPrenom()+" "+amis[i].getNom()+")");
+            }
+
         }
         final StableArrayAdapter adapter = new StableArrayAdapter(amis, context,
                 android.R.layout.simple_list_item_1, list);
@@ -235,7 +261,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
             @Override
             public void onItemClick( AdapterView<?> arg0, View arg1, int position, long arg3) {
 
-                if(!Session.membre.getListeAmisId ().contains ( amis[position].getId () )){
+                if(!Session.membre.getListeAmisId ().contains ( amis[position].getId () ) ){
                     System.out.println ( "Clicked : " + amis[position].getId () );
 
 
@@ -309,6 +335,9 @@ public class BackgroundWorker extends AsyncTask<String,Void,String> {
     }
 
 
+    public void setArrayAdapter ( AdapterView<?> aa) {
+        this.arrayAdapter = aa;
+    }
 }
 /*
 * FROM https://www.vogella.com/tutorials/AndroidListView/article.html
@@ -343,7 +372,7 @@ class StableArrayAdapter extends ArrayAdapter<String> {
     public View getView(int position, View convertView, ViewGroup parent) {
         View row = super.getView(position, convertView, parent);
 
-        if(Session.membre.getListeAmisId ().contains ( amis[position].getId () ))
+        if(Session.membre.getListeAmisId ().contains ( amis[position].getId () ) )
         {
             // do something change color
             row.setBackgroundColor (Color.BLACK); // some color
