@@ -78,25 +78,25 @@ public final class R {
     public static final class id {
         private id() {}
 
-        public static final int action_container = 0x7f080034;
-        public static final int action_divider = 0x7f080036;
-        public static final int action_image = 0x7f080037;
-        public static final int action_text = 0x7f08003e;
-        public static final int actions = 0x7f08003f;
-        public static final int async = 0x7f080045;
-        public static final int blocking = 0x7f080049;
-        public static final int chronometer = 0x7f08005a;
-        public static final int forever = 0x7f08007e;
-        public static final int icon = 0x7f080086;
-        public static final int icon_group = 0x7f080087;
-        public static final int info = 0x7f080090;
-        public static final int italic = 0x7f080095;
-        public static final int line1 = 0x7f08009a;
-        public static final int line3 = 0x7f08009b;
-        public static final int normal = 0x7f0800b2;
-        public static final int notification_background = 0x7f0800b3;
-        public static final int notification_main_column = 0x7f0800b4;
-        public static final int notification_main_column_container = 0x7f0800b5;
+        public static final int action_container = 0x7f080033;
+        public static final int action_divider = 0x7f080035;
+        public static final int action_image = 0x7f080036;
+        public static final int action_text = 0x7f08003d;
+        public static final int actions = 0x7f08003e;
+        public static final int async = 0x7f080044;
+        public static final int blocking = 0x7f080048;
+        public static final int chronometer = 0x7f080059;
+        public static final int forever = 0x7f08007d;
+        public static final int icon = 0x7f080085;
+        public static final int icon_group = 0x7f080086;
+        public static final int info = 0x7f08008f;
+        public static final int italic = 0x7f080094;
+        public static final int line1 = 0x7f080099;
+        public static final int line3 = 0x7f08009a;
+        public static final int normal = 0x7f0800b1;
+        public static final int notification_background = 0x7f0800b2;
+        public static final int notification_main_column = 0x7f0800b3;
+        public static final int notification_main_column_container = 0x7f0800b4;
         public static final int right_icon = 0x7f0800c5;
         public static final int right_side = 0x7f0800c6;
         public static final int tag_transition_group = 0x7f0800f9;

@@ -36,7 +36,7 @@ public class Profil extends AppCompatActivity {
         startActivity ( anothercallActivity);
     }
     public void messagerie(View view){
-        Intent anothercallActivity=new Intent (this,Messagerie.class);
+        Intent anothercallActivity=new Intent (this, Messagerie.class);
         startActivity ( anothercallActivity);
     }
 

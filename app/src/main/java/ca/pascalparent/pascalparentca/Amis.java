@@ -20,6 +20,7 @@ import android.widget.PopupMenu;
 
 import com.squareup.picasso.Picasso;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -78,7 +79,7 @@ public class Amis extends AppCompatActivity {
                         .setIcon( R.drawable.ic_ami)
                         .setPositiveButton("Envoyer un message", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dlg, int sumthin) {
-                                Intent anothercallActivity=new Intent (Amis.this,Messagerie.class);
+                                Intent anothercallActivity=new Intent (Amis.this, Messagerie.class);
                                 startActivity ( anothercallActivity);
                             }
                         })

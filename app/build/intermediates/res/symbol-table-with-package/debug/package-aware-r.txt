@@ -1113,7 +1113,6 @@ id CTRL
 id FUNCTION
 id FondColore
 id ListeAmis
-id ListeMessages
 id META
 id SHIFT
 id SYM
@@ -1291,6 +1290,7 @@ id notification_main_column_container
 id off
 id on
 id outline
+id output
 id packed
 id parallax
 id parent
