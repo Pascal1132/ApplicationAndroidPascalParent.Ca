@@ -1075,6 +1075,7 @@ drawable design_password_eye
 drawable design_snackbar_background
 drawable ic_ami
 drawable ic_clear_all_white_24dp
+drawable ic_erreur_reseau
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 drawable ic_menu_camera
@@ -1218,6 +1219,7 @@ id dimensions
 id direct
 id disableHome
 id editCourriel
+id editTextMessage
 id edit_query
 id end
 id end_padder

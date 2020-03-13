@@ -12,7 +12,7 @@ import ca.pascalparent.pascalparentca.ObjectClass.ConnexionInfo;
 
 public class Session {
 
-    
+    public static int idAmisConvo = -1;
     public static ConnexionInfo membre;
 
 

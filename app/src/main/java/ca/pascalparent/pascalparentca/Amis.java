@@ -79,6 +79,7 @@ public class Amis extends AppCompatActivity {
                         .setIcon( R.drawable.ic_ami)
                         .setPositiveButton("Envoyer un message", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dlg, int sumthin) {
+                                Session.idAmisConvo = Integer.parseInt(amis.get(0));
                                 Intent anothercallActivity=new Intent (Amis.this, Messagerie.class);
                                 startActivity ( anothercallActivity);
                             }
