@@ -22,7 +22,7 @@
 15        android:allowBackup="true"
 15-->/home/pascal/AndroidStudioProjects/Pascalparentca/app/src/main/AndroidManifest.xml:9:9-35
 16        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-16-->[androidx.core:core:1.1.0] /root/.gradle/caches/transforms-2/files-2.1/f01b27bb220ecb79298884ef36a7a2fb/core-1.1.0/AndroidManifest.xml:24:18-86
+16-->[androidx.core:core:1.1.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/f01b27bb220ecb79298884ef36a7a2fb/core-1.1.0/AndroidManifest.xml:24:18-86
 17        android:debuggable="true"
 18        android:icon="@mipmap/ic_launcher"
 18-->/home/pascal/AndroidStudioProjects/Pascalparentca/app/src/main/AndroidManifest.xml:10:9-43
@@ -71,31 +71,31 @@
 36        </activity>
 37
 38        <provider
-38-->[com.squareup.picasso:picasso:2.71828] /root/.gradle/caches/transforms-2/files-2.1/5a1a6e6e8a7e946cff254e53750530df/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
+38-->[com.squareup.picasso:picasso:2.71828] /home/pascal/.gradle/caches/transforms-2/files-2.1/8e8d118458539653983946ba4925ee60/jetified-picasso-2.71828/AndroidManifest.xml:8:9-11:40
 39            android:name="com.squareup.picasso.PicassoProvider"
-39-->[com.squareup.picasso:picasso:2.71828] /root/.gradle/caches/transforms-2/files-2.1/5a1a6e6e8a7e946cff254e53750530df/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
+39-->[com.squareup.picasso:picasso:2.71828] /home/pascal/.gradle/caches/transforms-2/files-2.1/8e8d118458539653983946ba4925ee60/jetified-picasso-2.71828/AndroidManifest.xml:9:13-64
 40            android:authorities="ca.pascalparent.pascalparentca.com.squareup.picasso"
-40-->[com.squareup.picasso:picasso:2.71828] /root/.gradle/caches/transforms-2/files-2.1/5a1a6e6e8a7e946cff254e53750530df/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
+40-->[com.squareup.picasso:picasso:2.71828] /home/pascal/.gradle/caches/transforms-2/files-2.1/8e8d118458539653983946ba4925ee60/jetified-picasso-2.71828/AndroidManifest.xml:10:13-72
 41            android:exported="false" />
-41-->[com.squareup.picasso:picasso:2.71828] /root/.gradle/caches/transforms-2/files-2.1/5a1a6e6e8a7e946cff254e53750530df/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
+41-->[com.squareup.picasso:picasso:2.71828] /home/pascal/.gradle/caches/transforms-2/files-2.1/8e8d118458539653983946ba4925ee60/jetified-picasso-2.71828/AndroidManifest.xml:11:13-37
 42
 43        <service
-43-->[androidx.room:room-runtime:2.2.4] /root/.gradle/caches/transforms-2/files-2.1/2a8ee9ff2dc9b9b25f69213ddcd8deda/room-runtime-2.2.4/AndroidManifest.xml:25:9-27:40
+43-->[androidx.room:room-runtime:2.2.4] /home/pascal/.gradle/caches/transforms-2/files-2.1/2a8ee9ff2dc9b9b25f69213ddcd8deda/room-runtime-2.2.4/AndroidManifest.xml:25:9-27:40
 44            android:name="androidx.room.MultiInstanceInvalidationService"
-44-->[androidx.room:room-runtime:2.2.4] /root/.gradle/caches/transforms-2/files-2.1/2a8ee9ff2dc9b9b25f69213ddcd8deda/room-runtime-2.2.4/AndroidManifest.xml:26:13-74
+44-->[androidx.room:room-runtime:2.2.4] /home/pascal/.gradle/caches/transforms-2/files-2.1/2a8ee9ff2dc9b9b25f69213ddcd8deda/room-runtime-2.2.4/AndroidManifest.xml:26:13-74
 45            android:exported="false" />
-45-->[androidx.room:room-runtime:2.2.4] /root/.gradle/caches/transforms-2/files-2.1/2a8ee9ff2dc9b9b25f69213ddcd8deda/room-runtime-2.2.4/AndroidManifest.xml:27:13-37
+45-->[androidx.room:room-runtime:2.2.4] /home/pascal/.gradle/caches/transforms-2/files-2.1/2a8ee9ff2dc9b9b25f69213ddcd8deda/room-runtime-2.2.4/AndroidManifest.xml:27:13-37
 46
 47        <provider
-47-->[androidx.lifecycle:lifecycle-process:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
+47-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:23:9-27:43
 48            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-48-->[androidx.lifecycle:lifecycle-process:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79
+48-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:24:13-79
 49            android:authorities="ca.pascalparent.pascalparentca.lifecycle-process"
-49-->[androidx.lifecycle:lifecycle-process:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
+49-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:25:13-69
 50            android:exported="false"
-50-->[androidx.lifecycle:lifecycle-process:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
+50-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:26:13-37
 51            android:multiprocess="true" />
-51-->[androidx.lifecycle:lifecycle-process:2.0.0] /root/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
+51-->[androidx.lifecycle:lifecycle-process:2.0.0] /home/pascal/.gradle/caches/transforms-2/files-2.1/b3c088406576b03c69a90621925ddf75/lifecycle-process-2.0.0/AndroidManifest.xml:27:13-40
 52    </application>
 53
 54</manifest>
